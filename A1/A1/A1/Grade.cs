@@ -7,9 +7,9 @@ namespace A1
     class Grade
     {
         private Double Value;
-        public readonly DateTime Date;
-        public readonly int ExamCode;
-        public readonly string Note;
+        private readonly DateTime Date;
+        private readonly int ExamCode;
+        private readonly string Note;
         public bool Frozen = false;
 
         public Grade(double value, int examCode, string note, DateTime date)
@@ -46,6 +46,21 @@ namespace A1
         public double getValue()
         {
             return Value;
+        }
+
+        public int getExamCode()
+        {
+            return ExamCode;
+        }
+
+        public DateTime GetDate()
+        {
+            return Date;
+        }
+
+        public string getNote()
+        {
+            return Note;
         }
     }
 }

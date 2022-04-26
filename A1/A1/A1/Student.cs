@@ -44,22 +44,22 @@ namespace A1
 
         public void printGrades()
         {
-            var grades = Grades.OrderBy(x => x.Date).ToList();
+            var grades = Grades.OrderBy(x => x.GetDate()).ToList();
             grades.ForEach(x => Console.WriteLine(x));
         }
 
         public void printGrades(DateTime startDate, DateTime endTime)
         {
             var grades = Grades
-                .Where(x => x.Date >= startDate && x.Date <= endTime)
-                .OrderBy(x => x.Date)
+                .Where(x => x.GetDate() >= startDate && x.GetDate() <= endTime)
+                .OrderBy(x => x.GetDate())
                 .ToList();
 
             grades.ForEach(x => Console.WriteLine(x));
         }
         public List<Grade> gradesFor(int examcode)
         {
-            return Grades.Where(x => x.ExamCode == examcode).ToList();
+            return Grades.Where(x => x.getExamCode() == examcode).ToList();
         }
 
         public double gradePointAverage()
