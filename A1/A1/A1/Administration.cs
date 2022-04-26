@@ -7,19 +7,37 @@ namespace A1
 {
     class Administration
     {
-        List<Student> Students;
+        private List<Student> students;
 
         public void addStudent(string firstname, string lastname, int studentNumber, DateTime birthDate)
         {
             var student = new Student(firstname, lastname, studentNumber, birthDate);
-            Students.Add(student);
+            students.Add(student);
         }
 
         public void removeGrade(int studentNumber, int examCode)
         {
-            var student = Students.SingleOrDefault(x => x.StudentNumber == studentNumber);
+            var student = students.SingleOrDefault(x => x.StudentNumber == studentNumber);
             if (student == null) return;
-            var grade = student.grades.Remove(student.grades.FirstOrDefault(x => !x.Frozen && x.getExamCode() == examCode));
+            var grade = student.grades.Remove(student.grades.FirstOrDefault(x => !x.Frozen && x.ExamCode == examCode));
         }
+
+        public void addGrade(int studentNumber, int examCode, double value, string note, DateTime examDate)
+        {
+            var student = students.SingleOrDefault(x => x.StudentNumber == studentNumber);
+        }
+        public void addGrade(int studentNumber, int examCode, double value, DateTime examDate)
+        {
+            var student = students.SingleOrDefault(x => x.StudentNumber == studentNumber);
+        }
+        public void addGrade(int studentNumber, int examCode, double value, string note)
+        {
+            var student = students.SingleOrDefault(x => x.StudentNumber == studentNumber);
+        }
+        public void addGrade(int studentNumber, int examCode, double value)
+        {
+            var student = students.SingleOrDefault(x => x.StudentNumber == studentNumber);
+        }
+
     }
 }

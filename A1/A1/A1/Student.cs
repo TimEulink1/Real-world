@@ -26,11 +26,11 @@ namespace A1
             this.studentNumber = studentNumber;
         }
 
-        void addGrade(int examCode, double value)
+        public void setGrade(int examCode, double value)
         {
-            value = Math.Round(value * 2, MidpointRounding.AwayFromZero) / 2;
-            var grades = this.grades.Where(x => x.ExamCode == examCode);
+            var grades = this.grades.Where(x => x.ExamCode == examCode).ToList();
             var notFrozenGrade = grades.FirstOrDefault(x => !x.Frozen);
+
             if(notFrozenGrade != null)
             {
                 notFrozenGrade.Value = value;

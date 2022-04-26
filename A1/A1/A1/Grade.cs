@@ -21,21 +21,21 @@ namespace A1
 
         public Grade(double value, int examCode, string note, DateTime date)
         {
-            this.value = value;
+            this.value = Math.Round(value * 2, MidpointRounding.AwayFromZero) / 2;
             this.date = date;
             this.examCode = examCode;
             this.note = note;
         }
         public Grade(double value, int examCode, string note)
         {
-            this.value = value;
+            this.value = Math.Round(value * 2, MidpointRounding.AwayFromZero) / 2;
             date = DateTime.Now;
             this.examCode = examCode;
             this.note = note;
         }
         public Grade(double value, int examCode)
         {
-            this.value = value;
+            this.value = Math.Round(value * 2, MidpointRounding.AwayFromZero) / 2;
             date = DateTime.Now;
             this.examCode = examCode;
         }
