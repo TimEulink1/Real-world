@@ -25,18 +25,24 @@ namespace A1
         public void addGrade(int studentNumber, int examCode, double value, string note, DateTime examDate)
         {
             var student = students.SingleOrDefault(x => x.StudentNumber == studentNumber);
+            student.setGrade(examCode, value, note, examDate);
         }
         public void addGrade(int studentNumber, int examCode, double value, DateTime examDate)
         {
             var student = students.SingleOrDefault(x => x.StudentNumber == studentNumber);
+            student.setGrade(examCode, value, examDate);
+
         }
         public void addGrade(int studentNumber, int examCode, double value, string note)
         {
             var student = students.SingleOrDefault(x => x.StudentNumber == studentNumber);
+            student.setGrade(examCode, value, note);
+
         }
         public void addGrade(int studentNumber, int examCode, double value)
         {
             var student = students.SingleOrDefault(x => x.StudentNumber == studentNumber);
+            student.setGrade(examCode, value);
         }
 
     }
