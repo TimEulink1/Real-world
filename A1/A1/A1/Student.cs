@@ -16,6 +16,7 @@ namespace A1
         
         public string FirstName { get { return firstName; } set { firstName = value; } }
         public string LastName { get { return lastName; } set { lastName = value; } }
+        public int StudentNumber { get { return studentNumber; } set { studentNumber = value; } }
 
         public Student(string firstName, string lastName, int studentNumber, DateTime birthDate)
         {
@@ -29,10 +30,10 @@ namespace A1
         {
             value = Math.Round(value * 2, MidpointRounding.AwayFromZero) / 2;
             var grades = this.grades.Where(x => x.ExamCode == examCode);
-            var notFrozenGrade = grades.FirstOrDefault(x => !x.frozen);
+            var notFrozenGrade = grades.FirstOrDefault(x => !x.Frozen);
             if(notFrozenGrade != null)
             {
-                notFrozenGrade.setGrade(value);
+                notFrozenGrade.Value = value;
             }
             else
             {

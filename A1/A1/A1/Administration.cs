@@ -17,7 +17,7 @@ namespace A1
 
         public void removeGrade(int studentNumber, int examCode)
         {
-            var student = Students.SingleOrDefault(x => x.getStudentNumber() == studentNumber);
+            var student = Students.SingleOrDefault(x => x.StudentNumber == studentNumber);
             if (student == null) return;
             var grade = student.grades.Remove(student.grades.FirstOrDefault(x => !x.Frozen && x.getExamCode() == examCode));
         }
