@@ -6,61 +6,42 @@ namespace A1
 {
     class Grade
     {
-        private Double Value;
-        private readonly DateTime Date;
-        private readonly int ExamCode;
-        private readonly string Note;
-        public bool Frozen = false;
+        private Double value;
+        private readonly DateTime date;
+        private readonly int examCode;
+        private readonly string note;
+        public bool frozen = false;
+
+        public double Value { get { return value; } set { this.value = value; } }
+        public DateTime Date { get { return date; } }
+        public int ExamCode { get { return examCode; } }
+        public string Note { get { return note; } }
+
 
         public Grade(double value, int examCode, string note, DateTime date)
         {
-            Value = value;
-            Date = date;
-            ExamCode = examCode;
-            Note = note;
+            this.value = value;
+            this.date = date;
+            this.examCode = examCode;
+            this.note = note;
         }
         public Grade(double value, int examCode, string note)
         {
-            Value = value;
-            Date = DateTime.Now;
-            ExamCode = examCode;
-            Note = note;
+            this.value = value;
+            date = DateTime.Now;
+            this.examCode = examCode;
+            this.note = note;
         }
         public Grade(double value, int examCode)
         {
-            Value = value;
-            Date = DateTime.Now;
-            ExamCode = examCode;
+            this.value = value;
+            date = DateTime.Now;
+            this.examCode = examCode;
         }
 
         public string toString()
         {
-            return ExamCode.ToString() + " on " + Date.ToString() + ": " + Value.ToString();
-        }
-
-        public void setGrade(double value)
-        {
-            if (!Frozen) Value = value;
-        }
-
-        public double getValue()
-        {
-            return Value;
-        }
-
-        public int getExamCode()
-        {
-            return ExamCode;
-        }
-
-        public DateTime GetDate()
-        {
-            return Date;
-        }
-
-        public string getNote()
-        {
-            return Note;
+            return examCode.ToString() + " on " + date.ToString() + ": " + value.ToString();
         }
     }
 }

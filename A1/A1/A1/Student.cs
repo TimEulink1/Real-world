@@ -8,24 +8,27 @@ namespace A1
     class Student
     {
         public readonly string Fullname;
-        private string FirstName;
-        private string LastName;
-        private int StudentNumber;
-        private readonly DateTime BirthDate;
-        public List<Grade> Grades;
+        private string firstName;
+        private string lastName;
+        private int studentNumber;
+        private readonly DateTime birthDate;
+        public List<Grade> grades;
         
+        public string FirstName { get { return firstName; } set { firstName = value; } }
+        public string LastName { get { return lastName; } set { lastName = value; } }
+
         public Student(string firstName, string lastName, int studentNumber, DateTime birthDate)
         {
             Fullname = $"{firstName} {lastName}";
-            FirstName = firstName;
-            LastName = lastName;
-            StudentNumber = studentNumber;
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.studentNumber = studentNumber;
         }
 
         void addGrade(int examCode, double value)
         {
             value = Math.Round(value * 2, MidpointRounding.AwayFromZero) / 2;
-            var grades = Grades.Where(x => x.getExamCode() == examCode);
+            var grades = this.grades.Where(x => x.getExamCode() == examCode);
             var notFrozenGrade = grades.FirstOrDefault(x => !x.Frozen);
             if(notFrozenGrade != null)
             {
@@ -33,24 +36,24 @@ namespace A1
             }
             else
             {
-                Grades.Add(new Grade(value, examCode));
+                this.grades.Add(new Grade(value, examCode));
             }
         }
 
         public string toString()
         {
-            return $"{Fullname} {StudentNumber}";
+            return $"{Fullname} {studentNumber}";
         }
 
         public void printGrades()
         {
-            var grades = Grades.OrderBy(x => x.GetDate()).ToList();
+            var grades = this.grades.OrderBy(x => x.GetDate()).ToList();
             grades.ForEach(x => Console.WriteLine(x));
         }
 
         public void printGrades(DateTime startDate, DateTime endTime)
         {
-            var grades = Grades
+            var grades = this.grades
                 .Where(x => x.GetDate() >= startDate && x.GetDate() <= endTime)
                 .OrderBy(x => x.GetDate())
                 .ToList();
@@ -59,17 +62,12 @@ namespace A1
         }
         public List<Grade> gradesFor(int examcode)
         {
-            return Grades.Where(x => x.getExamCode() == examcode).ToList();
+            return grades.Where(x => x.getExamCode() == examcode).ToList();
         }
 
         public double gradePointAverage()
         {
-            return Grades.Average(x => x.getValue());
-        }
-
-        public int getStudentNumber()
-        {
-            return StudentNumber;
+            return grades.Average(x => x.getValue());
         }
     }
 }

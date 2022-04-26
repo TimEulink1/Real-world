@@ -19,7 +19,7 @@ namespace A1
         {
             var student = Students.SingleOrDefault(x => x.getStudentNumber() == studentNumber);
             if (student == null) return;
-            var grade = student.Grades.Remove(student.Grades.FirstOrDefault(x => !x.Frozen && x.getExamCode() == examCode));
+            var grade = student.grades.Remove(student.grades.FirstOrDefault(x => !x.Frozen && x.getExamCode() == examCode));
         }
     }
 }
