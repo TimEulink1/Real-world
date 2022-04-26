@@ -28,7 +28,7 @@ namespace A1
         void addGrade(int examCode, double value)
         {
             value = Math.Round(value * 2, MidpointRounding.AwayFromZero) / 2;
-            var grades = this.grades.Where(x => x.getExamCode() == examCode);
+            var grades = this.grades.Where(x => x.ExamCode == examCode);
             var notFrozenGrade = grades.FirstOrDefault(x => !x.Frozen);
             if(notFrozenGrade != null)
             {
@@ -47,27 +47,27 @@ namespace A1
 
         public void printGrades()
         {
-            var grades = this.grades.OrderBy(x => x.GetDate()).ToList();
+            var grades = this.grades.OrderBy(x => x.Date).ToList();
             grades.ForEach(x => Console.WriteLine(x));
         }
 
         public void printGrades(DateTime startDate, DateTime endTime)
         {
             var grades = this.grades
-                .Where(x => x.GetDate() >= startDate && x.GetDate() <= endTime)
-                .OrderBy(x => x.GetDate())
+                .Where(x => x.Date >= startDate && x.Date <= endTime)
+                .OrderBy(x => x.Date)
                 .ToList();
 
             grades.ForEach(x => Console.WriteLine(x));
         }
         public List<Grade> gradesFor(int examcode)
         {
-            return grades.Where(x => x.getExamCode() == examcode).ToList();
+            return grades.Where(x => x.ExamCode == examcode).ToList();
         }
 
         public double gradePointAverage()
         {
-            return grades.Average(x => x.getValue());
+            return grades.Average(x => x.Value);
         }
     }
 }
