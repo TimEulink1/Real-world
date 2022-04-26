@@ -12,7 +12,7 @@ namespace A1
         private string LastName;
         private int StudentNumber;
         private readonly DateTime BirthDate;
-        private List<Grade> Grades;
+        public List<Grade> Grades;
         
         public Student(string firstName, string lastName, int studentNumber, DateTime birthDate)
         {
@@ -25,7 +25,7 @@ namespace A1
         void addGrade(int examCode, double value)
         {
             value = Math.Round(value * 2, MidpointRounding.AwayFromZero) / 2;
-            var grades = Grades.Where(x => x.ExamCode == examCode);
+            var grades = Grades.Where(x => x.getExamCode() == examCode);
             var notFrozenGrade = grades.FirstOrDefault(x => !x.Frozen);
             if(notFrozenGrade != null)
             {
@@ -65,6 +65,11 @@ namespace A1
         public double gradePointAverage()
         {
             return Grades.Average(x => x.getValue());
+        }
+
+        public int getStudentNumber()
+        {
+            return StudentNumber;
         }
     }
 }
