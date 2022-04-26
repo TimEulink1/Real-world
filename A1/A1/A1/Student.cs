@@ -8,14 +8,21 @@ namespace A1
     class Student
     {
         public readonly string Fullname;
-        public string FirstName;
-        public string LastName;
-        public int StudentNumber;
-        public readonly DateTime BirthDate;
+        private string FirstName;
+        private string LastName;
+        private int StudentNumber;
+        private readonly DateTime BirthDate;
         private List<Grade> Grades;
         
+        public Student(string firstName, string lastName, int studentNumber, DateTime birthDate)
+        {
+            Fullname = $"{firstName} {lastName}";
+            FirstName = firstName;
+            LastName = lastName;
+            StudentNumber = studentNumber;
+        }
 
-        void setGrade(int examCode, double value)
+        void addGrade(int examCode, double value)
         {
             value = Math.Round(value * 2, MidpointRounding.AwayFromZero) / 2;
             var grades = Grades.Where(x => x.ExamCode == examCode);

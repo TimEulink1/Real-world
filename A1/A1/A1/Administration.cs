@@ -7,5 +7,10 @@ namespace A1
     class Administration
     {
         List<Student> students;
+
+        public void addStudent()
+        {
+
+        }
     }
 }
