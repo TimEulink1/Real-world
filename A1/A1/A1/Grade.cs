@@ -33,6 +33,12 @@ namespace A1
             this.examCode = examCode;
             this.note = note;
         }
+        public Grade(double value, int examCode, DateTime date)
+        {
+            this.value = Math.Round(value * 2, MidpointRounding.AwayFromZero) / 2;
+            this.date = date;
+            this.examCode = examCode;
+        }
         public Grade(double value, int examCode)
         {
             this.value = Math.Round(value * 2, MidpointRounding.AwayFromZero) / 2;

@@ -41,6 +41,50 @@ namespace A1
             }
         }
 
+        public void setGrade(int examCode, double value, string note)
+        {
+            var grades = this.grades.Where(x => x.ExamCode == examCode).ToList();
+            var notFrozenGrade = grades.FirstOrDefault(x => !x.Frozen);
+
+            if (notFrozenGrade != null)
+            {
+                notFrozenGrade.Value = value;
+            }
+            else
+            {
+                this.grades.Add(new Grade(value, examCode, note));
+            }
+        }
+
+        public void setGrade(int examCode, double value, DateTime date)
+        {
+            var grades = this.grades.Where(x => x.ExamCode == examCode).ToList();
+            var notFrozenGrade = grades.FirstOrDefault(x => !x.Frozen);
+
+            if (notFrozenGrade != null)
+            {
+                notFrozenGrade.Value = value;
+            }
+            else
+            {
+                this.grades.Add(new Grade(value, examCode, date));
+            }
+        }
+        public void setGrade(int examCode, double value,string note, DateTime date)
+        {
+            var grades = this.grades.Where(x => x.ExamCode == examCode).ToList();
+            var notFrozenGrade = grades.FirstOrDefault(x => !x.Frozen);
+
+            if (notFrozenGrade != null)
+            {
+                notFrozenGrade.Value = value;
+            }
+            else
+            {
+                this.grades.Add(new Grade(value, examCode, note, date));
+            }
+        }
+
         public string toString()
         {
             return $"{Fullname} {studentNumber}";
