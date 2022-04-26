@@ -29,7 +29,7 @@ namespace A1
         {
             value = Math.Round(value * 2, MidpointRounding.AwayFromZero) / 2;
             var grades = this.grades.Where(x => x.ExamCode == examCode);
-            var notFrozenGrade = grades.FirstOrDefault(x => !x.Frozen);
+            var notFrozenGrade = grades.FirstOrDefault(x => !x.frozen);
             if(notFrozenGrade != null)
             {
                 notFrozenGrade.setGrade(value);

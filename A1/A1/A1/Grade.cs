@@ -10,12 +10,13 @@ namespace A1
         private readonly DateTime date;
         private readonly int examCode;
         private readonly string note;
-        public bool frozen = false;
+        private bool frozen = false;
 
         public double Value { get { return value; } set { this.value = value; } }
         public DateTime Date { get { return date; } }
         public int ExamCode { get { return examCode; } }
         public string Note { get { return note; } }
+        public bool Frozen { get { return frozen; } set { frozen = value; } }
 
 
         public Grade(double value, int examCode, string note, DateTime date)
