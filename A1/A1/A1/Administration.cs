@@ -19,7 +19,8 @@ namespace A1
         {
             var student = students.SingleOrDefault(x => x.StudentNumber == studentNumber);
             if (student == null) return;
-            var grade = student.grades.Remove(student.grades.FirstOrDefault(x => !x.Frozen && x.ExamCode == examCode));
+            var grade = student.grades.SingleOrDefault(x => !x.Frozen && x.ExamCode == examCode);
+            if(grade != null) student.grades.Remove(grade);
         }
 
         public void addGrade(int studentNumber, int examCode, double value, string note, DateTime examDate)
