@@ -24,6 +24,7 @@ namespace A1
             this.firstName = firstName;
             this.lastName = lastName;
             this.studentNumber = studentNumber;
+            grades = new List<Grade>();
         }
 
         public void setGrade(int examCode, double value)
@@ -93,7 +94,18 @@ namespace A1
         public void printGrades()
         {
             var grades = this.grades.OrderBy(x => x.Date).ToList();
-            grades.ForEach(x => Console.WriteLine(x));
+            Console.WriteLine("****************************************************");
+            grades.ForEach(x =>
+            {
+                
+                Console.WriteLine("Examcode" + x.ExamCode);
+                Console.WriteLine("Date: " + x.Date);
+                Console.WriteLine("Frozen; " + x.Frozen);
+                Console.WriteLine("Note: " + x.Note);
+                Console.WriteLine("Value: " + x.Value);
+                Console.WriteLine("****************************************************");
+            }
+            );
         }
 
         public void printGrades(DateTime startDate, DateTime endTime)

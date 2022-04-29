@@ -21,27 +21,39 @@ namespace A1
 
         public Grade(double value, int examCode, string note, DateTime date)
         {
-            this.value = Math.Round(value * 2, MidpointRounding.AwayFromZero) / 2;
+            value = Math.Round(value * 2, MidpointRounding.AwayFromZero) / 2;
+            if (value > 10) this.value = 10;
+            else if (value < 1) this.value = 1;
+            else this.value = value;
             this.date = date;
             this.examCode = examCode;
             this.note = note;
         }
         public Grade(double value, int examCode, string note)
         {
-            this.value = Math.Round(value * 2, MidpointRounding.AwayFromZero) / 2;
+            value = Math.Round(value * 2, MidpointRounding.AwayFromZero) / 2;
+            if (value > 10) this.value = 10;
+            else if (value < 1) this.value = 1;
+            else this.value = value;
             date = DateTime.Now;
             this.examCode = examCode;
             this.note = note;
         }
         public Grade(double value, int examCode, DateTime date)
         {
-            this.value = Math.Round(value * 2, MidpointRounding.AwayFromZero) / 2;
+            value = Math.Round(value * 2, MidpointRounding.AwayFromZero) / 2;
+            if (value > 10) this.value = 10;
+            else if (value < 1) this.value = 1;
+            else this.value = value;
             this.date = date;
             this.examCode = examCode;
         }
         public Grade(double value, int examCode)
         {
-            this.value = Math.Round(value * 2, MidpointRounding.AwayFromZero) / 2;
+            value = Math.Round(value * 2, MidpointRounding.AwayFromZero) / 2;
+            if (value > 10) this.value = 10;
+            else if (value < 1) this.value = 1;
+            else this.value = value;
             date = DateTime.Now;
             this.examCode = examCode;
         }

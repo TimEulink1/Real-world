@@ -6,7 +6,11 @@ namespace A1
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Administration administration = new Administration();
+            while (true)
+            {
+                administration.displayMenu();
+            }
         }
     }
 }
