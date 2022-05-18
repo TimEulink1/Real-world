@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "suozUTll5JzSFLHPMWyVeBQpZmMMpeOxSG+HXNSOww6ovovQUpBVQjv36FzLGzvfknG1xoP3fs0HO/lmiugm0Q==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Tim Eulink\\OneDrive - Saxion\\Saxion\\L1\\p4\\Real World\\Real-world\\A2\\A2\\A2\\A2.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Tim Eulink\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.13\\microsoft.netcore.app.host.win-x64.3.1.13.nupkg.sha512"
+  ],
+  "logs": []
+}
